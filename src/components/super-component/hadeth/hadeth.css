@@ -1,0 +1,9 @@
+.hadeth .card{
+ /* background-color: #fff; */
+background: linear-gradient(120deg ,  #eca9bb, #f9658e);
+color: #fff;
+ padding: 30px 35px;
+ font-size: 20px;
+ font-weight: 800;
+ line-height: 2;
+}

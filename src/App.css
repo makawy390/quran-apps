@@ -1,0 +1,23 @@
+:root {
+    --main-color:#23305a;
+    --main-color1 : #6295b2;
+    --main-color2 : #f38db9;
+    --main-color3 : #1f1833;
+    --main-color4 : #44b5e5;
+    --secondry-color1:#e1f3fd;
+    --gold:#ffb741;
+    --main-padding : 100px;
+    --min-height : 90vh;
+}
+
+.app{
+ background:  #6fb9915f;
+ /* background-color: #1d232a; */
+ color: #a6adba;
+ color: #333;
+}
+body{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}

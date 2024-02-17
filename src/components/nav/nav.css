@@ -1,0 +1,17 @@
+.p-sidebar-right .p-sidebar {
+ width: 15rem;
+}
+ul{
+ list-style: none;
+}
+ul li a{
+text-decoration: none;
+line-height: 2;
+font-size: 18px;
+font-weight: 700;
+color: #333;
+}
+
+li a.active{
+ color: #6FB992;
+}

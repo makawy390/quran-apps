@@ -1,0 +1,53 @@
+.payer {
+    padding: 60px 0 0 0;    
+}
+.payer .contented{
+    display: flex;
+    background: #fff;
+    background: linear-gradient(120deg ,  #eca9bb, #f9658e);
+    height: 120px;
+    color: #fff;
+    padding: 20px 25px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    /* border-radius: 3px; */
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
+.payer .content{
+ background:#fff;
+ padding: 15px 20px;
+ font-size: 18px;
+ font-weight: 600;
+ border-radius: 3px;
+}
+
+.payer .search{
+    width: 100%;
+    padding: 12px 15px;
+    background: none;
+    border: 1.5px solid #333;
+    color: #333;
+    outline: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.payer .date{
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    word-spacing: 2px;
+}
+
+.azkar-after-payer p{
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: .6px;
+}
