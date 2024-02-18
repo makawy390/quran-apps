@@ -2,7 +2,7 @@
    padding: 30px 0;
  min-height: calc( var(--min-height) - 60px);
 }
-.quran .card{
+.quran-read .card{
  background: #fff;
  padding: 20px;
  display: flex;
@@ -12,6 +12,6 @@
  font-weight: 700;
  cursor: pointer;
 }
-.quran img{
+.quran-read img{
  width: 50px;
 }

@@ -24,8 +24,8 @@ const filtrationQuran = quran.map(({name , type , id} , index)=>(
 console.log(quran);
   return (
     <div className='quran-read'>
-      <Grid container spacing={2}>
         <h2>قراءة القران الكريم</h2>
+      <Grid container spacing={2}>
         {filtrationQuran}
       </Grid>
     </div>
