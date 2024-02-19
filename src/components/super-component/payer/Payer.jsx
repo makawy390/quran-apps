@@ -10,15 +10,16 @@ const Payer = () => {
 //  const api = `https://api.aladhan.com/v1/timingsByAddress`;
 // const api = "https://api.aladhan.com/v1/timingsByCity";
 // const api = "https://api.aladhan.com/v1/timingsByCity"
+const api = "https://api.aladhan.com/v1/timingsByAddress/${day}?"
 console.log(day);
-const api = `https://api.aladhan.com/v1/timingsByAddress`
+// const api = `https://api.aladhan.com/v1/timingsByAddress`
  const [search,setSearch] = useState('القاهرة'); 
  // const functionPayer = axios.get(api).then(res => setPayer(res.data)).catch(err => console.log(err));
  useEffect(()=>{
-  axios.get(`${api}/${day}?address=${search},Egypt&method=8`)
+  axios.get(`${api}address=${search}&method=8`)
   .then(res => setPayer(res.data.data))
   .catch(err => console.log(err));
- },[]);
+ },[search]);
 console.log(payer);
   return (
     <div className='payer'>
