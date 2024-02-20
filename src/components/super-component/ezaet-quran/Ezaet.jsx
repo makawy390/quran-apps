@@ -10,9 +10,20 @@ const Ezaet = () => {
  useEffect(()=>{
   axios.get(api).then(res => setEzaa(res.data.radios)).catch(err => console.log(err))
  },[]);
- const filtrationEzaa = ezaa?.map(({id , name , url})=>(
+ console.log(ezaa);
+ const [state , setState] = useState([
+  {
+    url :'',
+    name : ''
+  }
+ ]);
+ const clicked = (url , name)=>{
+  setState({url : url , name : name})
+ };
+ console.log(state.url);
+ const filtrationEzaa = ezaa?.map(({id , name , url},ind)=>(
   <Grid item xs={12} md={4} key={id}>
- <AudioPlayer 
+ {/* <AudioPlayer 
         style={{ borderRadius: "1rem" , maxWidth: "400px" }}
         // autoPlay
         layout="stacked"
@@ -20,7 +31,11 @@ const Ezaet = () => {
         showSkipControls={true}
         showJumpControls={false}
         header={name}
-      />
+      /> */}
+      <div className="card" key={id} onClick={()=> clicked(url , name)}>
+       <span className='num'>{ind+1}</span> <span> {name}</span>
+      </div>
+
       </Grid>
  ))
   return (
@@ -28,6 +43,19 @@ const Ezaet = () => {
      <h2>اذاعة القران الكريم</h2>
      <Grid container spacing={2}>
      {filtrationEzaa}
+       <AudioPlayer 
+        style={{  brderRadius: ".25rem",            
+              padding: "35px",
+              position : 'fixed',
+              bottom : 0,
+              left: 0 }}
+        autoPlay
+        header = {state.name}
+        layout="stacked"
+        src={state.url}
+        showSkipControls={true}
+        showJumpControls={false}
+      />
      </Grid>  
     </div>
   )

@@ -4,6 +4,7 @@ import  { useState } from 'react';
 import { Container } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import './nav.css'
+import { FcDatabase } from 'react-icons/fc';
 const Nav = () => {
       const [visible, setVisible] = useState(false);
       const arr = [
@@ -25,14 +26,17 @@ const Nav = () => {
     <div className='nav' >
       <Container>
        <div className="card flex justify-content-center" >
-            <Sidebar visible={visible} position='right' dir='rtl' onHide={() => setVisible(false)}>
+            <Sidebar visible={visible}   position='right' dir='rtl' onHide={() => setVisible(false)}>
                 <h2>ذكرني قرآن كريم</h2>
                 <ul>
                   {filtration}
                 </ul>
+                        <span dir='ltr'>مصطنع بواسطة م.محمد هشام مكاوي &copy; 2024</span>
             </Sidebar>
-            <Button icon="pi pi-arrow-right" onClick={() => setVisible(true)} />
+            
         </div>
+            <Button icon={<FcDatabase />} onClick={() => setVisible(true)} />
+
       </Container>
     </div>
   )

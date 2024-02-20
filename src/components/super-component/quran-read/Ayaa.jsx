@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-// import { Button } from 'primereact/button';
 import './quran.css'
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
@@ -17,7 +16,7 @@ const Ayaa = () => {
       .then((res) => setAyaa(res.data.data));
     // axios.get(`${tafserApi}/${params.id}`).then(res => setTafser(res.data.result))
   }, [params.id]);
-  console.log(ayaa);
+  // console.log();
   // const filtrationAyaa = ayaa.map(({ name }, ind) => (
   //   <div className="card" key={ind}>
   //     <h3>{name?.long}</h3>
@@ -71,41 +70,28 @@ const Ayaa = () => {
   // const getAyaa = ayaa.map((e)=>{
   //  return e.id == params.id
   // });
-      const [audio,setAudio] = useState("");
-    //   const [active , setActive] = useState(false)
-const clicked = (audio  )=>{
-setAudio(audio);
+      const [state,setState] = useState([
+        {
+  audio : '',
+  name : ''
 }
-  return (
-    <div className="ayaat">
-
-      {/* {getAyaa} */}
-      {/* {getTafser} */}
-      {/* {filtrationArray} */}
-      {/* {filtrationAyaa} */}
-      {/* <h2>{ayaa?.name?.long}</h2> */}
-      <h3 className="bismillah">بِسْمِ ٱللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h3>
-      {ayaa?.verses?.map(({ audio, number, text , translation}, ind) => (
-        <div className={`ayaa`} key={ind}  onClick={(()=> clicked(audio?.primary))}>
+      ]);
+const clicked = (audio , name)=>{
+  setState({audio : audio , name : name})
+}
+const filtrationAyaa = ayaa?.verses?.map(({ audio, number, text , translation}, ind) => (
+        <div className={`ayaa`} key={ind}  onClick={(()=> clicked(audio?.primary , text.arab))}>
           <h3>
             {text.arab} ﴿ {number?.inSurah} ﴾
           </h3>
           <h5 dir="ltr">{translation?.en}</h5>
-          {/* <AudioPlayer
-            style={{
-              brderRadius: ".25rem",
-              maxWidth: "400px",
-              padding: "25px",
-            }}
-            // footer="dlld"
-            layout="stacked"
-            src={audio?.primary}
-            showSkipControls={true}
-            showJumpControls={false}
-            header={`${text.arab} (${number?.inSurah})`}
-          /> */}
+          
         </div>
-      ))}
+      ))
+  return (
+    <div className="ayaat">
+      <h3 className="bismillah">بِسْمِ ٱللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h3>
+      {filtrationAyaa}
        <AudioPlayer
             style={{
               brderRadius: ".25rem",            
@@ -114,13 +100,13 @@ setAudio(audio);
               bottom : 0,
               left: 0
             }}
-            // footer="dlld"
+            header={state.name}
             layout="stacked"
-            src={audio}
+            src={state.audio}
             showSkipControls={true}
             showJumpControls={false}
-            // header={`${text.arab} (${number?.inSurah})`}
           />
+          {/* <Spinner /> */}
     </div>
   );
 };

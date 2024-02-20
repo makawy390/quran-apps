@@ -3,6 +3,7 @@ import axios from "axios";
 import { TabView, TabPanel } from "primereact/tabview";
 import "./azkar.css";
 import img from '../../../assets/tasbih.png'
+import Spinner from './../../spinner/Spinner';
 const Azkar = () => {
   const api =
     "https://raw.githubusercontent.com/nawafalqari/azkar-api/56df51279ab6eb86dc2f6202c7de26c8948331c1/azkar.json";
@@ -35,10 +36,10 @@ const Azkar = () => {
     <div className="azkar">
       <h2>اذكار المسلم <img src={img} alt=".."/> </h2>
       <div className="card">
+        {azkar === ""? <Spinner /> : 
         <TabView>
           {azkarChip.map((sets, index) => (
             <TabPanel header={sets} key={index}>
-              {/* {ffe} */}
               {entries
                 ?.map((e) => {
                   return e[1]?.filter((f) => f.category === sets);
@@ -58,6 +59,7 @@ const Azkar = () => {
             </TabPanel>
           ))}
         </TabView>
+        }
       </div>
     </div>
   );

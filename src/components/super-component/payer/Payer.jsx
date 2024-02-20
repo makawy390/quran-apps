@@ -1,26 +1,36 @@
 import {useState , useEffect} from 'react'
 import axios from 'axios';
 import {Grid } from '@mui/material'
-// import AzakrAfterPayer from './AzakrAfterPayer';
 import './payer.css'
 const Payer = () => {
  const [payer,setPayer] = useState([]);
- 
  const day = new Date().toISOString().split("T")[0];
-//  const api = `https://api.aladhan.com/v1/timingsByAddress`;
-// const api = "https://api.aladhan.com/v1/timingsByCity";
-// const api = "https://api.aladhan.com/v1/timingsByCity"
 const api = "https://api.aladhan.com/v1/timingsByAddress/${day}?"
 console.log(day);
-// const api = `https://api.aladhan.com/v1/timingsByAddress`
  const [search,setSearch] = useState('القاهرة'); 
- // const functionPayer = axios.get(api).then(res => setPayer(res.data)).catch(err => console.log(err));
  useEffect(()=>{
   axios.get(`${api}address=${search}&method=8`)
   .then(res => setPayer(res.data.data))
   .catch(err => console.log(err));
  },[search]);
 console.log(payer);
+const array = [
+  {ar :"صلاة الفجر" , appcend : `${payer?.timings?.Fajr}` },
+  {ar :"صلاة الشروق" , appcend : `${payer?.timings?.Sunrise}` },
+  {ar :"صلاة الظهر" , appcend : `${payer?.timings?.Dhuhr}` },
+  {ar :"صلاة العصر" , appcend : `${payer?.timings?.Asr}` },
+  {ar :"صلاة المغرب" , appcend : `${payer?.timings?.Maghrib}` },
+  {ar :"صلاة العشاء" , appcend : `${payer?.timings?.Isha}` },
+];
+const filtrationArray = array.map(({ar , appcend} , ind)=> (
+     <Grid item xs={12} md={2} key={ind}>
+      <div className="contented">
+      <span>{ar}</span>
+    <span> {appcend}</span>
+      </div>
+   </Grid>
+
+))
   return (
     <div className='payer'>
       <input type="search" placeholder='ابحث عن مدينتك' className='search'  onChange={(e)=> setSearch(e.target.value)}/>
@@ -35,43 +45,7 @@ console.log(payer);
       <span>الموافق {payer?.date?.gregorian?.date} م. </span>
       </div>
       <Grid container spacing={1}>
-     <Grid item xs={12} md={2}>
-      <div className="contented">
-      <span>الفجر</span>
-    <span> {payer?.timings?.Fajr}</span>
-      </div>
-   </Grid>
-     <Grid item xs={12} md={2}>
-<div className="contented">
-        <span>الشروق</span>
-    <span> {payer?.timings?.Sunrise}</span>
-</div>
-   </Grid>
-   
-        <Grid item xs={12} md={2}>
-          <div className="contented">
-        <span>الظهر</span>
-    <span> {payer?.timings?.Dhuhr}</span>
-          </div>
-   </Grid>
-        <Grid item xs={12} md={2}>
-          <div className="contented">
-              <span>العصر</span>
-    <span>{payer?.timings?.Asr}</span>
-          </div>
-   </Grid>
-        <Grid item xs={12} md={2}>
-          <div className="contented">
-                     <span>المغرب</span>
-    <span>{payer?.timings?.Maghrib}</span>
-          </div>
-   </Grid>
-        <Grid item xs={12} md={2}>
-     <div className="contented">
-           <span>العشاء</span>
-    <span> {payer?.timings?.Isha}</span>
-     </div>
-   </Grid>
+     {filtrationArray}
    </Grid>
     </div>
   )

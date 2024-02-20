@@ -5,6 +5,7 @@ import axios from "axios";
 import { Grid } from "@mui/material";
 import img1 from "../../../assets/Medinan.png";
 import img2 from "../../../assets/mak.png";
+import Spinner from "../../spinner/Spinner";
 
 const QuranRead = () => {
   // const [quran, setQuran] = useState([]);
@@ -13,10 +14,7 @@ const QuranRead = () => {
   const API = "https://api.quran.gading.dev/surah";
   const [surah, setSurah] = useState([]);
   useEffect(() => {
-    // axios
-    //   .get(api)
-    //   .then((res) => setQuran(res.data))
-    //   .catch((err) => console.log(err));
+
     axios
       .get(API)
       .then((res) => setSurah(res.data.data))
@@ -52,7 +50,7 @@ const QuranRead = () => {
     <div className="quran-read">
       <h2>قراءة القران الكريم</h2>
       <Grid container spacing={0.5}>
-        {filtrationQuran}
+        {surah===''? <Spinner /> :   filtrationQuran}
       </Grid>
     </div>
   );

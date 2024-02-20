@@ -3,6 +3,7 @@
 }
 ul{
  list-style: none;
+ padding: 0;
 }
 ul li a{
 text-decoration: none;
@@ -14,4 +15,19 @@ color: #333;
 
 li a.active{
  color: #6FB992;
+}
+.nav svg{
+ font-size: 25px;
+}
+.p-button.p-button-icon-only {
+width: 4rem;
+}
+.p-button{
+ position: fixed;
+ left: 8%;
+ z-index: 1001;
+
+}
+.p-sidebar-right .p-sidebar{
+ width: 20rem;
 }

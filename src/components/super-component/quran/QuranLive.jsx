@@ -3,7 +3,6 @@ import axios from 'axios'
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import {Container , Grid} from '@mui/material';
-// import img from '../../../assets/ic_radio.png';
 import './quran.css'
 const QuranLive = () => {
  const [quran , setQuran] = useState([]);
@@ -12,7 +11,15 @@ const QuranLive = () => {
   axios.get(api).then(res => setQuran(res.data.data)).catch(err => console.log(err))
  },[])
 console.log(quran);
-const [audio , setAudio] = useState("");
+const [state , setState] = useState([
+{
+  audio : '',
+  name : ''
+}
+]);
+const clicked = (audio , name)=>{
+  setState({audio : audio , name : name})
+}
   const filtrationQuran = quran.map(({recitation , asma , ayahCount , number , type},index)=>(
     // <Grid item xs={12} md={4}  key={index}>
     //   <div className="image">
@@ -30,7 +37,7 @@ const [audio , setAudio] = useState("");
 
     // </Grid>
     <Grid item xs={12} md={4} key={index}>
-      <div className="card" onClick={() => setAudio(recitation?.full)}>
+      <div className="card" onClick={() => clicked(recitation?.full , asma?.ar?.long)}>
         
         <div className="surah">
           {/* <span>{number} </span>   */}
@@ -69,8 +76,9 @@ const [audio , setAudio] = useState("");
               bottom : 0,
               left: 0 }}
         autoPlay
+        header ={state.name}
         layout="stacked"
-        src={audio}
+        src={state.audio}
         showSkipControls={true}
         showJumpControls={false}
       />
