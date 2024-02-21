@@ -1,24 +1,21 @@
 .quran-read {
-   padding: 30px 0;
+   padding: 50px 0;
  min-height: calc( var(--min-height) - 60px);
 }
+.ayaat{
+  min-height: 100vh;
+   padding: 50px 0;
+    margin-bottom: 100px;
+    max-width: 900px;
+    width: 100%;
+
+}
 .quran-read .card{
- /* background: #fff;
- padding: 20px;
- display: flex;
- justify-content: space-between;
- align-items: center;
- font-size: 18px;
- font-weight: 700;
- cursor: pointer; */
-     background: #fff;
     background: linear-gradient(120deg ,  #eca9bb, #f9658e);
-    color: #fff;
     padding: 20px 25px;
     margin-bottom: 10px;
-    font-size: 18px;
-    font-weight: 600;
-     padding: 20px;
+        font-size: 18px;
+  font-weight: 600;
  display: flex;
  justify-content: space-between;
  align-items: center;
@@ -27,11 +24,7 @@
 .quran-read img{
  width: 50px;
 }
-.ayaat{
-  margin-bottom: 100px;
-    max-width: 900px;
-    width: 100%;
-}
+
 .ayaat .bismillah{
   border-bottom: 1px dotted #000;
     font-family: myFont;
@@ -40,6 +33,7 @@
     margin-bottom: 5px;
     padding: 20px 0;
     text-align: center;
+    flex-wrap: wrap;
 }
 .ayaat .ayaa{
   cursor: pointer;

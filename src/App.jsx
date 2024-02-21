@@ -10,6 +10,8 @@ const Home = lazy(()=> import ('./components/home/Home'));
 const Ayaa = lazy(()=> import ('./components/super-component/quran-read/Ayaa'));
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 import Root from './components/root/Root';
+import Hadeth from './components/super-component/hadeth/Hadeth';
+import NamedHadth from './components/super-component/hadeth/NamedHadth';
 function App() {
 const router = createBrowserRouter([
   {
@@ -41,6 +43,17 @@ const router = createBrowserRouter([
           {
             path : ':id',
             element : <Ayaa />
+          }
+        ],
+
+      },
+      {
+        path : '/hadth',
+        children  :[
+          {index : true , element :<Hadeth />},
+          {
+            path : ':id',
+            element : <NamedHadth />
           }
         ],
 

@@ -1,17 +1,17 @@
 .quran{
-  padding: 80px 0;
+  padding: 80px 0 150px 0;
  min-height: calc( var(--min-height) - 60px);
 }
 .quran .card{
     background: #fff;
-    background: linear-gradient(120deg ,  #eca9bb, #f9658e);
+    background: linear-gradient(360deg , #f9658e, #eca9bb);
     color: #fff;
     padding: 20px 25px;
-    /* margin-bottom: 10px; */
     font-size: 18px;
     font-weight: 600;
-    
+    cursor: pointer;    
 }
+
 .quran .card .surah{
   display: flex;
   justify-content: space-between;

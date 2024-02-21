@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import './quran.css'
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import Spinner from './../../spinner/Spinner';
 const Ayaa = () => {
   const [ayaa, setAyaa] = useState([]);
   const params = useParams();
@@ -80,6 +81,7 @@ const clicked = (audio , name)=>{
   setState({audio : audio , name : name})
 }
 const filtrationAyaa = ayaa?.verses?.map(({ audio, number, text , translation}, ind) => (
+       text == ""?<> <Spinner /></> : 
         <div className={`ayaa`} key={ind}  onClick={(()=> clicked(audio?.primary , text.arab))}>
           <h3>
             {text.arab} ﴿ {number?.inSurah} ﴾

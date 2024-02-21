@@ -46,8 +46,8 @@ const Azkar = () => {
                 })
                 .filter((e) => e.length > 0)["0"]?.map((e, i) => (
                   <div key={i}>
-                    <p className="par">{e.content}</p>
-                    <h4>{e.description}</h4>
+                    <h2 className="content">{e.content}</h2>
+                    <h3 className="desc">{e.description}</h3>
                     <input
                       type="button"
                       onClick={(e) => handelEvent(e)}
