@@ -5,6 +5,7 @@ import './quran.css'
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import Spinner from './../../spinner/Spinner';
+import { convert } from "../../../json/convert";
 const Ayaa = () => {
   const [ayaa, setAyaa] = useState([]);
   const params = useParams();
@@ -84,7 +85,7 @@ const filtrationAyaa = ayaa?.verses?.map(({ audio, number, text , translation}, 
        text == ""?<> <Spinner /></> : 
         <div className={`ayaa`} key={ind}  onClick={(()=> clicked(audio?.primary , text.arab))}>
           <h3>
-            {text.arab} ﴿ {number?.inSurah} ﴾
+            {text.arab} ﴿ {convert(`${number?.inSurah}`)} ﴾
           </h3>
           <h5 dir="ltr">{translation?.en}</h5>
           

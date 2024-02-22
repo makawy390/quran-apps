@@ -50,3 +50,19 @@
     font-weight: 700;
     letter-spacing: .6px;
 }
+#demo{
+    font-weight: 700;
+    font-size: 25px;
+    word-spacing: 5px;
+    text-align: center;
+    padding: 10px;
+    line-height: 2;
+}
+@media (min-width : 125px) and (max-width : 991px) {
+#demo{
+    font-size: 18px ;
+    text-align: right;
+        word-spacing: 2px;
+
+}
+}

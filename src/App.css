@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Reem+Kufi:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
 :root {
     --main-color:#23305a;
     --main-color1 : #6295b2;
@@ -10,14 +13,23 @@
     --min-height : 90vh;
 }
 
+
 .app{
  background:  #6fb9915f;
  /* background-color: #1d232a; */
  color: #a6adba;
  color: #333;
+ font-family: "Reem Kufi", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 body{
  padding: 0;
  margin: 0;
  box-sizing: border-box;
+}
+*{
+   font-family: "Reem Kufi", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-style: normal !important;
 }

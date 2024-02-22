@@ -4,6 +4,7 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import {Container , Grid} from '@mui/material';
 import './quran.css'
+import Spinner from '../../spinner/Spinner';
 const QuranLive = () => {
  const [quran , setQuran] = useState([]);
  const api = 'https://quran-endpoint.vercel.app/quran';
@@ -67,7 +68,8 @@ const clicked = (audio , name)=>{
       <Container fixed>
         <h1> استماع القران الكريم</h1>
         <Grid container spacing={1}>
-      {filtrationQuran}
+      {/* {filtrationQuran} */}
+      {quran.length === 0? <Spinner /> : filtrationQuran}
       </Grid>
           <AudioPlayer 
         style={{  brderRadius: ".25rem",            

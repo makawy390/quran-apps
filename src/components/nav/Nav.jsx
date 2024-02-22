@@ -3,6 +3,9 @@ import { HiOutlineMenu } from "react-icons/hi";
 import  { useState } from 'react';
 import { Container } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import { IoLogoWhatsapp } from "react-icons/io";
+import { FaPhone } from "react-icons/fa6";
+import { convert } from '../../json/convert';
 import './nav.css'
 const Nav = () => {
       const [visible, setVisible] = useState(false);
@@ -20,6 +23,8 @@ const Nav = () => {
       const filtration = arr.map((arr,index)=>(
         <li key={index}> <NavLink to={arr.url}>{arr.name}</NavLink></li>
       ));
+
+  
   return (
     <div className='nav' >
       <Container>
@@ -29,7 +34,11 @@ const Nav = () => {
                 <ul>
                   {filtration}
                 </ul>
-                        <span dir='ltr'>مصطنع بواسطة م.محمد هشام مكاوي &copy; 2024</span>
+                        <span >مصطنع  بواسطة مهندس / محمد هشام مكاوي &copy; {convert(2024)} </span>
+                        <p dir='ltr' ><IoLogoWhatsapp /> {convert('01555245948')} </p>
+                        <p dir='ltr' ><FaPhone />  {convert('01010838632')} </p>
+
+
             </Sidebar>
             
         </div>

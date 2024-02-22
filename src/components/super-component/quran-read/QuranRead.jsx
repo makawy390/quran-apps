@@ -6,6 +6,7 @@ import { Grid } from "@mui/material";
 import img1 from "../../../assets/Medinan.png";
 import img2 from "../../../assets/mak.png";
 import Spinner from "../../spinner/Spinner";
+import { convert } from "../../../json/convert";
 
 const QuranRead = () => {
   // const [quran, setQuran] = useState([]);
@@ -20,21 +21,17 @@ const QuranRead = () => {
       .then((res) => setSurah(res.data.data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(surah);
   const navigate = useNavigate();
   const filtrationQuran = surah.map(({ name, revelation, number , numberOfVerses}, index) => (
     <Grid item xs={12} md={4} key={index}>
       <div className="card" onClick={() => navigate(`${number}`)}>
-        {/* <span></span> */}
-        
         <div className="surah">
-          <span className="num">{number} </span>  
+          <span className="num">{convert(`${number}`)} </span>  
         <span>{name?.long}</span>
         </div>
 
-
         <div className="number">
-          <span>{numberOfVerses} آية</span>
+          <span>{convert(`${numberOfVerses}`)} آية</span>
                     {revelation?.arab === "مكة" ? (
             <img src={img2} alt="" />
 
