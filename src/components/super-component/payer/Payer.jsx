@@ -1,37 +1,43 @@
 import {useState , useEffect} from 'react'
 import axios from 'axios';
-import {Grid } from '@mui/material'
+import {Grid , FormControl , Select , MenuItem} from '@mui/material'
 import './payer.css'
 import { convert } from '../../../json/convert';
+import {cities } from '../../../json/apiCity' 
 const Payer = () => {
  const [payer,setPayer] = useState([]);
  const day = new Date().toISOString().split("T")[0];
 const api = "https://api.aladhan.com/v1/timingsByAddress/${day}?"
 console.log(day);
- const [search,setSearch] = useState('القاهرة'); 
+console.log(cities[2].data);
+ const [city , setCity] = useState("القاهرة");
+  const handleChange = (event) => {
+    setCity(event.target.value);
+  };
  useEffect(()=>{
-  axios.get(`${api}address=${search}&method=8`)
+  axios.get(`${api}address=${city}&method=8`)
   .then(res => setPayer(res.data.data))
   .catch(err => console.log(err));
- },[search]);
- var countDownDate = new Date("Mar 11, 2024 00:00:00").getTime();
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
+ },[city]);
 
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//  const countDownDate = new Date("Mar 11, 2024 00:00:00").getTime();
+// var x = setInterval(() => {
+//   var now = new Date().getTime();
+//   var distance = countDownDate - now;
 
-  // document.getElementById("demo").innerHTML = `الوقت المتبقي علي حلول شهر رمضان ${convert(days)} يوم ${convert(hours)} ساعه ${convert(minutes)} دقيقة ${convert(seconds)} ثانية `;
+//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "كل عام وانتم بخير";
-  }
-}, 1000);
+//   // document.getElementById("demo").innerHTML = `الوقت المتبقي علي حلول شهر رمضان ${convert(days)} يوم ${convert(hours)} ساعه ${convert(minutes)} دقيقة ${convert(seconds)} ثانية `;
 
+//   if (distance < 0) {
+//     clearInterval(x);
+//     document.getElementById("demo").innerHTML = "كل عام وانتم بخير";
+//   }
+// }, 1000);
+// https://quranenc.com/api/v1/translation/sura/arabic_moyassar/10
 const array = [
   {ar :"صلاة الفجر" , appcend : `${payer?.timings?.Fajr}` },
   {ar :"صلاة الشروق" , appcend : `${payer?.timings?.Sunrise}` },
@@ -48,16 +54,34 @@ const filtrationArray = array.map(({ar , appcend} , ind)=> (
       </div>
    </Grid>
 
-))
-  return (
-    <div className='payer'>
-      <input type="search" placeholder='ابحث عن مدينتك' className='search'  onChange={(e)=> setSearch(e.target.value)}/>
+));
 
-      <h2>  مؤاقيت الصلاه بتوقيت {search}</h2>
-      <p id="demo">
+
+  return (
+    <div className='payer' dir='rtl'>
+        <FormControl variant="standard" fullWidth >
+<span>اختار المحافظة</span>
+  <Select 
+    labelId="demo-simple-select-label"
+    id="demo-simple-select"
+    value={city}
+    label="اختار المحافظة"
+    onChange={handleChange}
+    dir='rtl'
+    sx={{padding : '25px 0'}}
+  >
+    {cities[2]?.data.map(({id,governorate_name_ar})=> (
+    <MenuItem key={id} dir='rtl'  value={governorate_name_ar}>{governorate_name_ar}</MenuItem>
+
+    ))}
+
+  </Select>
+</FormControl>
+      <h2>  مؤاقيت الصلاه بتوقيت {city}</h2>
+      {/* <p id="demo"> */}
 {/* `الوقت المتبقي علي حلول شهر رمضان ${convert(days)} يوم ${convert(hours)} ساعه ${convert(minutes)} دقيقة ${convert(seconds)} ثانية `; */}
 
-      </p>
+      {/* </p> */}
 
       <div className='date'>
               <span>{payer?.date?.hijri?.weekday?.ar} </span> 

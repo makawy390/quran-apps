@@ -1,7 +1,7 @@
 import { Sidebar } from 'primereact/sidebar';
 import { HiOutlineMenu } from "react-icons/hi";
 import  { useState } from 'react';
-import { Container } from '@mui/material';
+// import { Container } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
@@ -27,7 +27,6 @@ const Nav = () => {
   
   return (
     <div className='nav' >
-      <Container>
        <div className="card flex justify-content-center" >
             <Sidebar visible={visible}   position='right' dir='rtl' onHide={() => setVisible(false)}>
                 <h2>ذكرني قرآن كريم</h2>
@@ -42,12 +41,13 @@ const Nav = () => {
             </Sidebar>
             
         </div>
-            <div dir='ltr' className='icons'>
+            <div className="apps">
+              <h3>ذكرني</h3>
+              <div className='icons'>
               <HiOutlineMenu  onClick={() => setVisible(true)}/>
-
             </div>
 
-      </Container>
+            </div>
     </div>
   )
 }

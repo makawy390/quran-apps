@@ -4,6 +4,7 @@ import { TabView, TabPanel } from "primereact/tabview";
 import "./azkar.css";
 import img from '../../../assets/tasbih.png'
 import Spinner from './../../spinner/Spinner';
+import { convert } from './../../../json/convert';
 const Azkar = () => {
   const api =
     "https://raw.githubusercontent.com/nawafalqari/azkar-api/56df51279ab6eb86dc2f6202c7de26c8948331c1/azkar.json";
@@ -51,7 +52,7 @@ const Azkar = () => {
                     <input
                       type="button"
                       onClick={(e) => handelEvent(e)}
-                      value={e.count}
+                      value={convert(`${e.count}`)}
                       className="button"
                     />
                   </div>

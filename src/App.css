@@ -11,6 +11,7 @@
     --gold:#ffb741;
     --main-padding : 100px;
     --min-height : 90vh;
+    --background-card : linear-gradient(90deg , #ce8afb , #b476fd , #ac6cfd );
 }
 
 
@@ -32,4 +33,9 @@ body{
    font-family: "Reem Kufi", sans-serif !important;
   font-optical-sizing: auto !important;
   font-style: normal !important;
+}
+
+.button{
+     background: var(--background-card);
+     border: 1px solid var(--background-card);
 }

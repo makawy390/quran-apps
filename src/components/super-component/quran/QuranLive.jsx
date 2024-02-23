@@ -5,6 +5,7 @@ import "react-h5-audio-player/lib/styles.css";
 import {Container , Grid} from '@mui/material';
 import './quran.css'
 import Spinner from '../../spinner/Spinner';
+import { convert } from '../../../json/convert';
 const QuranLive = () => {
  const [quran , setQuran] = useState([]);
  const api = 'https://quran-endpoint.vercel.app/quran';
@@ -42,9 +43,9 @@ const clicked = (audio , name)=>{
         
         <div className="surah">
           {/* <span>{number} </span>   */}
-        <span className='num'>{number}</span>
+        <span className='num'>{convert(`${number}`)}</span>
         <span>{asma?.ar?.long}</span>
-        <span>{ayahCount} </span>
+        <span>{convert(`${ayahCount}`)} اية</span>
         <span>{type?.ar}</span>
         </div>
 

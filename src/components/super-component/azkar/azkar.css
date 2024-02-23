@@ -14,7 +14,8 @@ h2 img{
     word-spacing: 2px;
 }
 .desc{
-    font-size: 18px;
+    font-size: 16px;
     line-height: 2;
     word-spacing: 2px;
+    direction: ltr;
 }

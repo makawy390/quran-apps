@@ -3,10 +3,10 @@ import AzakrAfterPayer from './AzakrAfterPayer'
 
 const Main = () => {
   return (
-    <>
+    <div className='main-payer'>
     <Payer />
     <AzakrAfterPayer />
-    </>
+    </div>
   )
 }
 

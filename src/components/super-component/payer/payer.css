@@ -1,10 +1,12 @@
 .payer {
     padding: 60px 0 0 0;    
 }
+.main-payer{
+    min-height: 100vh;
+}
 .payer .contented{
     display: flex;
-    background: #fff;
-    background: linear-gradient(120deg ,  #eca9bb, #f9658e);
+     background: var(--background-card);
     height: 120px;
     color: #fff;
     padding: 20px 25px;
