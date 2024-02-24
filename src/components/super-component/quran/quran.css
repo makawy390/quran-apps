@@ -1,5 +1,5 @@
 .quran{
-  padding: 80px 0 150px 0;
+  padding: 120px 0 150px 0;
  min-height: calc( var(--min-height) - 60px);
 }
 .quran .card{

@@ -16,9 +16,8 @@ const Nav = () => {
         {name : 'دعاء مسلم', url : '/doaa'},
         {name : ' استماع القرآن الكريم ', url : '/listening-quran'},
         {name : ' قراءة القرآن الكريم', url : '/reading-quran'},
+        {name : 'تفسير القرآن الكريم', url : '/tafser'},
         {name : 'اذاعه القرآن الكريم', url : '/ezaet-quran'},
-        // {name : 'تفسير القرآن الكريم', url : '/tafser-quran'},
-
       ];
       const filtration = arr.map((arr,index)=>(
         <li key={index}> <NavLink to={arr.url}>{arr.name}</NavLink></li>
@@ -33,7 +32,8 @@ const Nav = () => {
                 <ul>
                   {filtration}
                 </ul>
-                        <span >مصطنع  بواسطة مهندس / محمد هشام مكاوي &copy; {convert(2024)} </span>
+                        <span >مصطنع  بواسطة  <br/>
+                          مهندس / محمد هشام مكاوي &copy; {convert(2024)} </span>
                         <p dir='ltr' ><IoLogoWhatsapp /> {convert('01555245948')} </p>
                         <p dir='ltr' ><FaPhone />  {convert('01010838632')} </p>
 

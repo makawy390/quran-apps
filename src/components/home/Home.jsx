@@ -4,7 +4,6 @@ import './home.css'
 const Home = () => {
   return (
     <div className='home'>
-      <h2>ذكرني قرأن كريم</h2>      
       <Payer />
       <Hadeth />
       </div>

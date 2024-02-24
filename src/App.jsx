@@ -12,6 +12,8 @@ import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 import Root from './components/root/Root';
 import Hadeth from './components/super-component/hadeth/Hadeth';
 import NamedHadth from './components/super-component/hadeth/NamedHadth';
+import Ayaet from './components/super-component/tafser/Ayaet';
+import Tafser from './components/super-component/tafser/Tafser';
 function App() {
 const router = createBrowserRouter([
   {
@@ -54,6 +56,17 @@ const router = createBrowserRouter([
           {
             path : ':id',
             element : <NamedHadth />
+          }
+        ],
+
+      },
+      {
+        path : '/tafser',
+        children  :[
+          {index : true , element :<Ayaet />},
+          {
+            path : ':id',
+            element : <Tafser />
           }
         ],
 

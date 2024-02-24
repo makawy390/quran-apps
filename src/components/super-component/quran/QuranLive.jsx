@@ -23,21 +23,7 @@ const clicked = (audio , name)=>{
   setState({audio : audio , name : name})
 }
   const filtrationQuran = quran.map(({recitation , asma , ayahCount , number , type},index)=>(
-    // <Grid item xs={12} md={4}  key={index}>
-    //   <div className="image">
-    //     <img src={img} alt=""  />
-    //   </div>
-    //    <AudioPlayer 
-    //     style={{ brderRadius: ".25rem" , maxWidth: "400px" , padding : '25px' }}
-    //     // autoPlay
-    //     layout="stacked"
-    //     src={recitation?.full}
-    //     showSkipControls={true}
-    //     showJumpControls={false}
-    //     header={asma?.ar?.long}
-    //   />
-
-    // </Grid>
+ 
     <Grid item xs={12} md={4} key={index}>
       <div className="card" onClick={() => clicked(recitation?.full , asma?.ar?.long)}>
         
@@ -48,18 +34,6 @@ const clicked = (audio , name)=>{
         <span>{convert(`${ayahCount}`)} اية</span>
         <span>{type?.ar}</span>
         </div>
-
-
-        {/* <div className="number">
-          {numberOfVerses} آية
-          {revelation?.arab === "مكة" ? (
-            <img src={img2} alt="" />
-
-          ) : (
-            <img src={img1} alt="" />
-
-          )}
-        </div> */}
       </div>
     </Grid>
   ));
@@ -69,7 +43,6 @@ const clicked = (audio , name)=>{
       <Container fixed>
         <h1> استماع القران الكريم</h1>
         <Grid container spacing={1}>
-      {/* {filtrationQuran} */}
       {quran.length === 0? <Spinner /> : filtrationQuran}
       </Grid>
           <AudioPlayer 

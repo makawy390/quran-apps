@@ -4,7 +4,6 @@ import { TabView, TabPanel } from "primereact/tabview";
 import "./azkar.css";
 import img from '../../../assets/tasbih.png'
 import Spinner from './../../spinner/Spinner';
-import { convert } from './../../../json/convert';
 const Azkar = () => {
   const api =
     "https://raw.githubusercontent.com/nawafalqari/azkar-api/56df51279ab6eb86dc2f6202c7de26c8948331c1/azkar.json";
@@ -15,11 +14,21 @@ const Azkar = () => {
       .then((res) => setAzkar(res.data))
       .catch((err) => console.log(err));
   }, []);
-
   const azkarChip = Object.keys(azkar);
   const entries = Object.entries(azkar);
+  console.log(azkar);
   const handelEvent = (e) => {
-    e.target.value <= 0 ? e.preventDefault() : e.target.value--;
+    e.target.value <= 0 ? e.preventDefault() :  e.target.value--;
+    // if (e.target.value === "0") {
+    //   setActive(true);
+    //   e.preventDefault()
+    // }
+    // else if(e.target.value >= 0) {
+    //    e.target.value--;
+
+
+    // }
+
   };
   // const f = entries?.map((e) => {
   //   return e[1]?.filter((f) => f.category === "أذكار المساء");
@@ -47,12 +56,12 @@ const Azkar = () => {
                 })
                 .filter((e) => e.length > 0)["0"]?.map((e, i) => (
                   <div key={i}>
-                    <h2 className="content">{e.content}</h2>
+                    <h2 className="content">{e.content.split(/[.*'',,+?^$n{}()|[\]\\]/g)}</h2>
                     <h3 className="desc">{e.description}</h3>
                     <input
                       type="button"
                       onClick={(e) => handelEvent(e)}
-                      value={convert(`${e.count}`)}
+                      value={e.count}
                       className="button"
                     />
                   </div>

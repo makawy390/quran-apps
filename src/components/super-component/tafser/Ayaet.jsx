@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./quran.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Grid } from "@mui/material";
@@ -7,11 +6,9 @@ import img1 from "../../../assets/Medinan.png";
 import img2 from "../../../assets/mak.png";
 import Spinner from "../../spinner/Spinner";
 import { convert } from "../../../json/convert";
+import './tafser.css'
+const Ayaet = () => {
 
-const QuranRead = () => {
-  // const [quran, setQuran] = useState([]);
-  // const api =
-  //   "https://raw.githubusercontent.com/rn0x/Quran-Json/main/Quran.json";
   const API = "https://api.quran.gading.dev/surah";
   const [surah, setSurah] = useState([]);
   const [err , setError] = useState(false);
@@ -44,8 +41,8 @@ const QuranRead = () => {
     </Grid>
   ));
   return (
-    <div className="quran-read">
-      <h2>قراءة القران الكريم</h2>
+    <div className="tafser">
+      <h2>تفسير القران الكريم</h2>
       <Grid container spacing={0.5}>
         {err=== true? <Spinner /> :   filtrationQuran}
       </Grid>
@@ -54,4 +51,4 @@ const QuranRead = () => {
 };
 
 
-export default QuranRead;
+export default Ayaet;

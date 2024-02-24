@@ -71,7 +71,7 @@ const filtrationArray = array.map(({ar , appcend} , ind)=> (
     sx={{padding : '25px 0'}}
   >
     {cities[2]?.data.map(({id,governorate_name_ar})=> (
-    <MenuItem key={id} dir='rtl'  value={governorate_name_ar}>{governorate_name_ar}</MenuItem>
+    <MenuItem key={id} dir='rtl'  value={governorate_name_ar === 'جنوب سيناء'? 'جنوب سينا' : governorate_name_ar}>{governorate_name_ar === 'جنوب سيناء'? 'جنوب سينا' : governorate_name_ar }</MenuItem>
 
     ))}
 

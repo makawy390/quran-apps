@@ -4,6 +4,7 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { Grid} from '@mui/material'
 import './ezaet.css'
+import { convert } from '../../../json/convert';
 const Ezaet = () => {
  const [ezaa , setEzaa] = useState([]);
  const api = 'https://mp3quran.net/api/v3/radios';
@@ -33,7 +34,7 @@ const Ezaet = () => {
         header={name}
       /> */}
       <div className="card" key={id} onClick={()=> clicked(url , name)}>
-       <span className='num'>{ind+1}</span> <span> {name}</span>
+       <span className='num'>{convert(`${ind+1}`)}</span> <span> {name}</span>
       </div>
 
       </Grid>
