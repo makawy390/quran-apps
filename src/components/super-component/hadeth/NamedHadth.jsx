@@ -2,6 +2,7 @@ import {useState , useEffect} from 'react'
 import { useParams} from 'react-router-dom'
 import  axios  from 'axios';
 import { Grid } from '@mui/material';
+import './hadeth.css'
 const NamedHadth = () => {
  const [hadth , setHadth]  = useState([]);
 const {id} = useParams();

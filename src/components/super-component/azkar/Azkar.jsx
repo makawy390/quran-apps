@@ -19,16 +19,6 @@ const Azkar = () => {
   console.log(azkar);
   const handelEvent = (e) => {
     e.target.value <= 0 ? e.preventDefault() :  e.target.value--;
-    // if (e.target.value === "0") {
-    //   setActive(true);
-    //   e.preventDefault()
-    // }
-    // else if(e.target.value >= 0) {
-    //    e.target.value--;
-
-
-    // }
-
   };
   // const f = entries?.map((e) => {
   //   return e[1]?.filter((f) => f.category === "أذكار المساء");

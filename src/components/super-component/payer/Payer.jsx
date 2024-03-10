@@ -14,11 +14,15 @@ console.log(cities[2].data);
   const handleChange = (event) => {
     setCity(event.target.value);
   };
+// const apis = "https://atfawry.fawrystaging.com/ECommerceWeb/api/lookups/govs";
+// const [citys , setCitys] = useState([]);
  useEffect(()=>{
   axios.get(`${api}address=${city}&method=8`)
   .then(res => setPayer(res.data.data))
   .catch(err => console.log(err));
+  // axios.get(apis).then(res => setCitys(res.data)).catch(err => console.log(err));
  },[city]);
+//  console.log(citys);
 
 //  const countDownDate = new Date("Mar 11, 2024 00:00:00").getTime();
 // var x = setInterval(() => {

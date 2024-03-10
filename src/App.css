@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Reem+Kufi:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400&family=Reem+Kufi:wght@400..700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap'); */
 
 :root {
     --main-color:#23305a;
@@ -11,18 +11,24 @@
     --gold:#ffb741;
     --main-padding : 100px;
     --min-height : 90vh;
-    --background-card : linear-gradient(90deg , #ce8afb , #b476fd , #ac6cfd );
+    /* --background-card : linear-gradient(120deg , #6295b2 , #44b5e5 ); */
+    --background-card : linear-gradient(180deg , #0081A7 , #227c9d );
+    /* --background-card : linear-gradient(90deg , #FBC2EB , #78A3EB ); */
+
+    
+
 }
 
 
 .app{
  background:  #6fb9915f;
- /* background-color: #1d232a; */
+ background: #f4f4f8;
  color: #a6adba;
- color: #333;
+ color: #2A2C41;
  font-family: "Reem Kufi", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  word-spacing: 8px;
 }
 body{
  padding: 0;

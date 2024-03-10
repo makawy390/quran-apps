@@ -9,9 +9,8 @@ const Hadeth = () => {
  const [hadeth , setHadeth] = useState([]);
 //  const [count,setCount] = ("12");
  const api = "https://hadis-api-id.vercel.app/hadith";
-// console.log(count);
 const arr = [
-  {name : "Abu Dawud" , ar : 'أحمد داود'},
+  {name : "Abu Dawud" , ar : 'ابو داود'},
   {name : "Ahmad" , ar : 'أحمد '},
   {name : "Bukhari" , ar : 'البخاري'},
   {name : "Darimi" , ar : 'الدارمي'},

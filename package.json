@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.0",
     "@reduxjs/toolkit": "^2.0.1",
+    "antd": "^5.14.2",
     "axios": "^1.6.2",
     "formik": "^2.4.5",
     "primereact": "^10.2.1",

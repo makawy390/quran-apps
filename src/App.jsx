@@ -8,14 +8,17 @@ const QuranRead = lazy(()=> import ('./components/super-component/quran-read/Qur
 const Doaa = lazy(()=> import ('./components/super-component/doaa/Doaa'));
 const Home = lazy(()=> import ('./components/home/Home'));
 const Ayaa = lazy(()=> import ('./components/super-component/quran-read/Ayaa'));
-import {createBrowserRouter , RouterProvider} from 'react-router-dom'
-import Root from './components/root/Root';
-import Hadeth from './components/super-component/hadeth/Hadeth';
-import NamedHadth from './components/super-component/hadeth/NamedHadth';
-import Ayaet from './components/super-component/tafser/Ayaet';
-import Tafser from './components/super-component/tafser/Tafser';
+const Root = lazy(()=> import ('./components/root/Root'));
+const Hadeth = lazy(()=> import ('./components/super-component/hadeth/Hadeth'));
+const NamedHadth = lazy(()=> import ('./components/super-component/hadeth/NamedHadth'));
+const Ayaet = lazy(()=> import ('./components/super-component/tafser/Ayaet'));
+const Tafser = lazy(()=> import ('./components/super-component/tafser/Tafser'));
+
+import {createHashRouter , RouterProvider} from 'react-router-dom'
+import Doaas from './components/super-component/doaa/Doaas';
+
 function App() {
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path : '/',
     element : <Root />,
@@ -71,9 +74,20 @@ const router = createBrowserRouter([
         ],
 
       },
-            {
+      //       {
+      //   path : '/doaa',
+      //   element : <Doaa />
+      // },
+      {
         path : '/doaa',
-        element : <Doaa />
+        children  :[
+          {index : true , element :<Doaa />},
+          {
+            path : ':id',
+            element : <Doaas />
+          }
+        ],
+
       },
 
     ]

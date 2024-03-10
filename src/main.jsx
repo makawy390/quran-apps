@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PrimeReactProvider>
 
     <App />
+
       </PrimeReactProvider>
-    
   </React.StrictMode>,
 )

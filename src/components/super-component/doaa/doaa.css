@@ -1,17 +1,22 @@
 .doaa{
   padding: 120px 0;
- min-height: calc( var(--min-height) - 60px);
+  min-height: 100vh;
 }
 .doaa .card{
      background: var(--background-card);
      color: #fff;
-  padding: 15px 20px;
+  padding: 5px 20px;
   margin-bottom: 10px;
   border-radius: 2px;
   word-spacing: 3px;
+  cursor: pointer;
 }
 .card p{
  font-size: 17px;
  font-weight: 700;
  line-height: 2;
+}
+.doaas{
+  padding: 100px 0;
+  min-height: 88vh;
 }

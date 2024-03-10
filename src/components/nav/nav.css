@@ -32,6 +32,7 @@ cursor: pointer;
 width: 30px;
 height: 30px;
 border-radius: 5px;
+margin-top: 10px;
 }
 
 .p-sidebar-right .p-sidebar{
@@ -42,9 +43,11 @@ border-radius: 5px;
     display: flex; 
     justify-content: space-around;
     align-items: center;
-    padding: 15px;
     color: #fff;
     position: fixed;
     width: 100%;
     z-index: 1001;
+    padding: 15px 0;
+ 
 }
+
